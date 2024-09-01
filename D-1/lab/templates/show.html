@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ post.name }}</h1>
+<p>{{ post.description }}</p>
+<img src="{{ post.image }}" alt="{{ post.name }}" class="img-fluid">
+<a href="{{ url_for('edit', id=post.id) }}" class="btn btn-warning">Edit</a>
+<form action="{{ url_for('remove', id=post.id) }}" method="POST" style="display:inline;">
+    <button type="submit" class="btn btn-danger">Remove</button>
+</form>
+<a href="{{ url_for('landpage') }}" class="btn btn-secondary">Back to All Posts</a>
+{% endblock %}

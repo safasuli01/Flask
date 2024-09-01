@@ -1,0 +1,25 @@
+
+1- install flask
+2- create application have the following pages  (blog)
+    1- landing page - -> display all posts in table
+    -> hint post object (id, name, description , image)
+
+    2- show --> display post details
+
+    3- edit --> edit post details
+        --> edit form --> show old post details
+
+    4- delete
+        --> delete post
+
+    5- create post
+        --> save object to the database
+
+    hint:
+        use sqlAlchemy extension
+        use templates inheritance , static files
+        use bootstrap --> acceptable GUI
+
+
+NO COPYING labs, No chatgpt ==>
+lab 2 --> till 4pm -->
