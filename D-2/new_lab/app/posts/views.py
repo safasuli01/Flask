@@ -1,5 +1,4 @@
 from flask import request, render_template, redirect, url_for
-from dbus.decorators import method
 from app.posts import post_blueprint
 from app.models import Post, db
 

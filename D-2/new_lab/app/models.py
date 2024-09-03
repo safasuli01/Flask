@@ -1,5 +1,4 @@
 from fileinput import filename
-
 from flask_sqlalchemy import SQLAlchemy
 from flask import url_for
 
