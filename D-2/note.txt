@@ -1,3 +1,0 @@
-database username: sasa
-database password: '123'
-database name: 'flask_d2'
