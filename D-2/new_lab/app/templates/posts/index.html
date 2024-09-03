@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h1> All Posts </h1>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Title </th>
+            <th>Image</th>
+            <td>Show</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+
+        {% for post in posts %}
+            <tr>
+                <td>{{post.id}}</td>
+                <td> {{post.title}}</td>
+                <td> <img src="{{post.image_url}}" width="100" height="100"> </td>
+                <td> <a href="{{post.show_url}}" class="btn btn-info">Show </a> </td>
+                <td> <a href="{{post.edit_url}}" class="btn btn-warning">Edit </a> </td>
+                <td>
+                    <form action="{{post.delete_url}}" method="post">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+    <a href="{{ url_for('posts.create') }}" class="btn btn-info">Add New Post</a>
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends './base.html' %}
+
+{% block main %}
+
+    <h1> Posts Details </h1>
+<div class="card" style="width: 18rem;">
+
+  <img src="{{post.image_url}}"  class="card-img-top" alt="...">
+  <div class="card-body text-center mb-3">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.description}}</p>
+    <a href="{{ url_for('posts.index')}}" class="btn btn-primary">Back to all posts</a>
+  </div>
+</div>
+
+{% endblock %}

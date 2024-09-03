@@ -1,0 +1,25 @@
+{% extends './base.html' %}
+
+{% block main %}
+  <h1 style="text-align: center"> Add New Post</h1>
+
+<form method="post">
+
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    <input type="text" name="title" class="form-control" aria-describedby="emailHelp">
+  </div>
+
+ <div class="mb-3">
+    <label class="form-label">Image</label>
+    <input type="text" name="image" class="form-control" aria-describedby="emailHelp">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <input type="text" name="description" class="form-control" aria-describedby="emailHelp">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>
+{% endblock %}
