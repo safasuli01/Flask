@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>Edit Student</h1>
+<form method="POST">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ student.name }}">
+    </div>
+    <div class="mb-3">
+        <label for="grade" class="form-label">Grade</label>
+        <textarea class="form-control" id="grade" name="grade">{{ student.grade }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input type="text" class="form-control" id="image" name="image" value="{{ student.image }}">
+    </div>
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <a href="{{ url_for('students.index') }}" class="btn btn-secondary">Back to All Student</a>
+</form>
+{% endblock %}
