@@ -1,21 +1,22 @@
 {% extends './base.html' %}
 
 {% block main %}
-
-    <h1> Track Info </h1>
+<h1> Track Info </h1>
 <div class="card" style="width: 18rem;">
-
   <div class="card-body">
-    <h4 class=" text-success card-text">Track--> <a href="{{student.track.show_url}}">{{student.track.name}} </a> </h4>
-    <a href="{{ url_for('tracks.index')}}" class="btn btn-primary">Back to all Tracks</a>
+    <h4 class="text-success card-text">
+      Track --> <a href="{{ track.show_url }}">{{ track.name }}</a>
+    </h4>
   </div>
 </div>
-
+  
 <h1> Students in this track: </h1>
+<ul>
     {% for std in track.students %}
-        <li> hi 안녕
-            <a href="{{std.show_url}}"> {{std.name}}</a>
+        <li>
+            <a href="{{ std.show_url }}"> {{ std.name }} </a>
         </li>
     {% endfor %}
-
+</ul>
+<a href="{{ url_for('tracks.index') }}" class="btn btn-primary">Back to all Tracks</a>
 {% endblock %}

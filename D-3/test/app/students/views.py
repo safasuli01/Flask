@@ -27,7 +27,7 @@ def create():
 def show(id):
     student = db.get_or_404(Student, id)
     track=db.get_or_404(Track, student.track_id)
-    return  render_template("students/show.html", student=student)
+    return  render_template("students/show.html", student=student, track=track)
 
 @student_blueprint.route('/<int:id>/delete', endpoint='delete', methods=['POST'])
 def delete(id):

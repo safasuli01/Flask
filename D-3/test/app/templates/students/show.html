@@ -1,21 +1,17 @@
 {% extends './base.html' %}
 
 {% block main %}
-
-    <h1> Student Info </h1>
+<h1> Student Info </h1>
 <div class="card" style="width: 18rem;">
-
-  <img src="{{student.image_url}}"  class="card-img-top" alt="...">
+  <img src="{{ student.image_url }}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{student.name}}</h5>
-    <p class="card-text">{{student.grade}}</p>
-    <p class="card-text">{{student.track_id}}</p>
-    <h4 class=" text-success card-text">Track--> <a href="{{student.track.show_url}}">{{student.track.name}} </a> </h4>
-
-
-
-    <a href="{{ url_for('students.index')}}" class="btn btn-primary">Back to all Students</a>
+    <h5 class="card-title">{{ student.name }}</h5>
+    <p class="card-text">{{ student.grade }}</p>
+    <p class="card-text">{{ track.name }}</p>
+    <h4 class="text-success card-text">
+      Track --> <a href="{{ track.show_url }}">{{ track.name }}</a>
+    </h4>
+    <a href="{{ url_for('students.index') }}" class="btn btn-primary">Back to all Students</a>
   </div>
 </div>
-
 {% endblock %}
