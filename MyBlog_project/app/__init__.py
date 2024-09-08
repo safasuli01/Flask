@@ -1,11 +1,12 @@
 from flask import Flask
 from flask_migrate import Migrate
 from flask_bootstrap import Bootstrap5
-from flask_restful import Resource, Api
+from flask_restful import Api
+
 
 from app.config import config_options
 from app.models import db
-
+from app.posts.api.views import PostResource, PostList
 
 def create_app(config_name='prd'):
     app = Flask(__name__)
@@ -16,6 +17,7 @@ def create_app(config_name='prd'):
     db.init_app(app)
     migrate = Migrate(app, db)
     bootstrap = Bootstrap5(app)
+
     api = Api(app)
 
     from app.posts import post_blueprint
@@ -24,8 +26,8 @@ def create_app(config_name='prd'):
     from app.accounts import account_blueprint
     app.register_blueprint(account_blueprint)
 
-    ##genertating api
-    from app.posts.api.views import PostList
+    # Registering API resources
     api.add_resource(PostList, '/api/posts')
+    api.add_resource(PostResource, '/api/post/<int:id>')
 
     return app

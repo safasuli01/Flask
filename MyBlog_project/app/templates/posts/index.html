@@ -2,11 +2,12 @@
 
 {% block main %}
     <h1> All Posts </h1>
+    <a href="{{ url_for('posts.create') }}" class="btn btn-primary">Add New Post</a>
     <table class="table">
         <tr>
-            <th> ID</th>
-            <th> title </th>
-            <th> Image</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Image</th>
             <td>Show</td>
             <td>Delete</td>
             <td>Edit</td>
@@ -14,21 +15,17 @@
 
         {% for post in posts %}
             <tr>
-                <td>{{post.id}}</td>
-                <td> {{post.title}}</td>
-                <td> <img src="{{post.image_url}}" width="100" height="100"> </td>
-                <td> <a href="{{post.show_url}}" class="btn btn-info">Show </a> </td>
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td><img src="{{ post.image_url }}" width="100" height="100"></td>
+                <td><a href="{{ post.show_url }}" class="btn btn-info">Show</a></td>
                 <td>
-                    <form action="{{post.delete_url}}" method="POST">
+                    <form action="{{ post.delete_url }}" method="POST">
                         <input type="submit" value="Delete" class="btn btn-danger">
                     </form>
                 </td>
-                <td> <a href="{{post.edit_url}}" class="btn btn-warning">Edit </a> </td>
+                <td><a href="{{ post.edit_url }}" class="btn btn-warning">Edit</a></td>
             </tr>
-
         {% endfor %}
-
     </table>
-
-
 {% endblock %}
