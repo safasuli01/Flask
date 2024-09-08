@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h1>All Accounts</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Show</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for account in accounts %}
+            <tr>
+                <td>{{ account.id }}</td>
+                <td>{{ account.f_name }}</td>
+                <td>{{ account.l_name }}</td>
+                <td>{{ account.mail }}</td>
+                <td><a href="{{ account.show_url }}" class="btn btn-info">Show</a></td>
+                <td>
+                    <form action="{{ url_for('accounts.delete', id=account.id) }}" method="post">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

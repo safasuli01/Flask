@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>Account Info</h1>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h4 class="text-success card-text">
+      Account: <a href="{{ account.show_url }}">{{ account.f_name }} {{ account.l_name }}</a>
+    </h4>
+  </div>
+</div>
+
+<h1>Posts by this Account:</h1>
+<ul>
+    {% for post in account.posts %}
+        <li>
+            <a href="{{ post.show_url }}">{{ post.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('accounts.index') }}" class="btn btn-primary">Back to all Accounts</a>
+{% endblock %}

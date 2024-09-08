@@ -1,0 +1,17 @@
+{% extends './base.html' %}
+
+{% block main %}
+<h1> Post Info </h1>
+<div class="card" style="width: 18rem;">
+  <img src="{{ post.image_url }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.description }}</p>
+    <p class="card-text">{{ account.name }}</p>
+    <h4 class="text-success card-text">
+      Account: <a href="{{ account.show_url }}">{{ account.f_name }}</a>
+    </h4>
+    <a href="{{ url_for('posts.index') }}" class="btn btn-primary">Back to all Posts</a>
+  </div>
+</div>
+{% endblock %}

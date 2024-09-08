@@ -1,0 +1,29 @@
+{% extends './base.html' %}
+
+{% block main %}
+  <h1 style="text-align: center">Add New Post</h1>
+
+  <form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" name="title" class="form-control" aria-describedby="titleHelp">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Image</label>
+      <input type="file" name="image" class="form-control" aria-describedby="imageHelp">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <input type="text" name="description" class="form-control" aria-describedby="descriptionHelp">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Account</label>
+      <select name="account" class="form-control" aria-describedby="accountHelp">
+        {% for account in accounts %}
+          <option value="{{ account.id }}">{{ account.f_name }} {{ account.l_name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}
